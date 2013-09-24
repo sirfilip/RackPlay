@@ -1,7 +1,9 @@
 require 'rack'
-require './app.rb'
+$: << 'lib'
 
-app = App.new
+require 'my_way'
+
+app = MyWay::Base.new
 
 app.get '/' do 
   "Hello World"  
