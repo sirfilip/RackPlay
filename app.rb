@@ -26,7 +26,7 @@ class App
 
   def call(env)
     block, params = detect_route env
-    response = block.call(*params)
+    response = block.call(env, *params)
     [200, {"Content-Type" => "text/plain"}, [response]]
   rescue RouteNotFound
     show_404
