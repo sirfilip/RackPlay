@@ -11,4 +11,8 @@ app.get '/(\d+)' do |id|
   "Hello #{id}"
 end
 
+app.get '/(\d+)/(\d+)' do |one, two|
+  "Numbers are #{one} and #{two}"
+end
+
 Rack::Handler::WEBrick.run app
