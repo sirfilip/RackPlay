@@ -28,8 +28,7 @@ module MyWay
 
     def call(env)
       block, params = detect_route env
-      response = block.call(env, *params)
-      [200, {"Content-Type" => "text/plain"}, [response]]
+      block.call(env, *params)
     rescue RouteNotFound
       show_404
     end

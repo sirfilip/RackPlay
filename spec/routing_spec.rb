@@ -10,11 +10,11 @@ describe MyWay::Base do
   describe "GET" do
     before do 
       @app.get '/' do 
-        "Hello World"
+        [200, {'Content-type' => 'text/plain'}, ["Hello World"]]
       end
 
       @app.get '/(\d+)/(\d+)' do |env, num1, num2|
-        "Numbers #{num1},#{num2}"
+        [200, {'Content-type' =>'text/plain'}, ["Numbers #{num1},#{num2}"]]
       end
     end
 
