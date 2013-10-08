@@ -7,6 +7,10 @@ describe MyWay::Base do
     Capybara.app = @app
   end
 
+  def app
+    @app
+  end
+
   describe "GET" do
     before do 
       @app.get '/' do 
@@ -23,6 +27,11 @@ describe MyWay::Base do
       page.should have_content('Hello World')
       page.visit '/12/13'
       page.should have_content("Numbers 12,13")
+    end
+
+    it "should not match a post route" do
+      post '/'
+      last_response.status.should == 404
     end
 
   end
